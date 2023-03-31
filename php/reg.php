@@ -1,4 +1,7 @@
 <?php
+include('connect.php');
+session_start();
+
     echo 'Ваш email: '.$_POST['email'];
     echo 'Ваш номер: '.$_POST['number'];
     echo 'Ваше фио: '.$_POST['fio'];
