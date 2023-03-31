@@ -11,7 +11,7 @@
         <section class="margin-header">
             <img class="logo" src="/source/image/" alt="Logotype">
             <h1 class="tittle_header">Mazda De`Lux</h1>
-            <a class="but_login" href="php/nolog.php">ВЫХОД</a>
+            <a class="but_login" href="../php/exit.php">ВЫХОД</a>
         </section>
         <section class="bottom-header">
             <ul class="menu">
