@@ -3,18 +3,18 @@
     if(isset($_SESSION['sess_name'])){ // Если есть данные в 'blablabla', то...
         $stat_autoriz=0; // Выполняем что-либо
         $a_href = 'html/Profile.php';
-        if($_SESSION['root']==1){
+        if($_SESSION['root']==0){
+            $root_autor=0; // 0 в рут это админ, 0 стат - это авторизованный
+        }
+        else{
             $root_autor=1;
-          }
-          else{
-            $root_autor=0;
-          }
+        }
     }
     else{ // Если данных в сессии нет, то...
         $stat_autoriz=1;
+        $root_autor=1;
         $a_href = 'html/Autoriz.php';
     }
-    echo $stat_autoriz;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -51,6 +51,9 @@
             if($root_autor==0)
             {
                 echo'<a class="but_catalog_admin" href="html/Care-Plus.php">ДОБАВИТЬ ТОВАР</a>';
+            }
+            else {
+                echo '<h1>КАТАЛОГ</h1>';
             }
         ?>
         <section class="cards">
