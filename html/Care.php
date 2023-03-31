@@ -1,4 +1,16 @@
-<?php $stat_autoriz=0?>
+<?php 
+  session_start();
+  session_start();
+    if(isset($_SESSION['sess_name'])){ // Если есть данные в 'blablabla', то...
+        $stat_autoriz=0; // Выполняем что-либо
+        $a_href = 'html/Profile.php';
+    }
+    else{ // Если данных в сессии нет, то...
+        $stat_autoriz=1;
+        $a_href = 'html/Autoriz.php';
+    }
+    echo $stat_autoriz;
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -15,17 +27,17 @@
         <?php
           if($stat_autoriz == 1)
           {
-            echo'<a class="but_login" href="html/Autoriz.php">ВОЙТИ</a>';
+            echo'<a class="but_login" href="Autoriz.php">ВОЙТИ</a>';
           }
           else{
-            echo'<a class="but_login" href="php/nolog.php">ВЫХОД</a>';
+            echo'<a class="but_login" href="../php/exit.php">ВЫХОД</a>';
           }
         ?>
       </section>
       <section class="bottom-header">
         <ul class="menu">
           <li class="menu-item"><a href="../index.html">Каталог</a></li>
-          <li class="menu-item"><a href="Profile.html">Мои заявки</a></li>
+          <li class="menu-item"><?php echo '<a href="'.$a_href.'">Мои заявки</a>'?></li>
         </ul>
       </section>
     </header>

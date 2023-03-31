@@ -1,4 +1,21 @@
-<?php $stat_autoriz=1?>
+<?php 
+    session_start();
+    if(isset($_SESSION['sess_name'])){ // Если есть данные в 'blablabla', то...
+        $stat_autoriz=0; // Выполняем что-либо
+        $a_href = 'html/Profile.php';
+        if($_SESSION['root']==1){
+            $root_autor=1;
+          }
+          else{
+            $root_autor=0;
+          }
+    }
+    else{ // Если данных в сессии нет, то...
+        $stat_autoriz=1;
+        $a_href = 'html/Autoriz.php';
+    }
+    echo $stat_autoriz;
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -18,20 +35,20 @@
                     echo'<a class="but_login" href="html/Autoriz.php">ВОЙТИ</a>';
                 }
                 else{
-                    echo'<a class="but_login" href="php/nolog.php">ВЫХОД</a>';
+                    echo'<a class="but_login" href="php/exit.php">ВЫХОД</a>';
                 }
             ?>
         </section>
         <section class="bottom-header">
             <ul class="menu">
-                <li class="menu-item"><a href="index.php">Каталог</a></li>
-                <li class="menu-item"><a href="/html/Profile.php">Мои заявки</a></li>
+                <li class="menu-item"><a href="index.html">Каталог</?a></li>
+                <li class="menu-item"><?php echo '<a href="'.$a_href.'">Мои заявки</a>'?></li>
             </ul>
         </section>
     </header>
     <main>
         <?php 
-            if($stat_autoriz==0)
+            if($root_autor==0)
             {
                 echo'<a class="but_catalog_admin" href="html/Care-Plus.php">ДОБАВИТЬ ТОВАР</a>';
             }
@@ -41,7 +58,7 @@
             <p class="visualy-hidden">12345</p>
             <h3 class="model">Модель машины</h3>
             <p class="price">oт <span class="red">3 000 000</span></p>
-            <a class="next" href="/html/Care.php">Читать далее</a>
+            <a class="next" href="html/Care.php">Читать далее</a>
         </section>
     </main>
     <footer>

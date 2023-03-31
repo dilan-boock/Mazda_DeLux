@@ -1,6 +1,14 @@
 <?php 
-  $stat_autoriz=1;
-  $root_autor=0
+  session_start();
+  if($_SESSION['root']==1){
+      $root_autor=1;
+      $fio = $_SESSION['fio'];
+      $data = $_SESSION['data'];
+    }
+    else{
+      $root_autor=0;
+      $fio = $_SESSION['fio'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -15,7 +23,7 @@
       <section class="margin-header">
         <img class="logo" src="/source/image/" alt="Logotype">
         <h1 class="tittle_header">Mazda De`Lux</h1>
-        <a class="but_login" href="php/nolog.php">ВЫХОД</a>
+        <a class="but_login" href="../php/exit.php">ВЫХОД</a>
       </section>
       <section class="bottom-header">
         <ul class="menu">
@@ -29,12 +37,12 @@
           <?php
             if($root_autor==1){
               echo'
-                <span class="fio">Зенченко Лидия Богдановна</span>
-                <p class="data">17.04.1999</p>';
+                <span class="fio">'.$fio.'</span>
+                <p class="data">'.date("d.m.Y", strtotime($data)).'</p>';
             }
             else{
               echo'
-                <span class="fio">Пронько Лилия</span>
+                <span class="fio">'.$fio.'</span>
                 <p class="data">Кабинет менеджера</p>';
             }
           ?>
