@@ -23,7 +23,7 @@
         }
         else 
         {
-            //header("Location: autoriz.php");
+            header("Location: autoriz.php");
         }
     }
     

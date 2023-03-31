@@ -1,9 +1,18 @@
+<?php
+  session_start();
+  if(isset($_SESSION['stat_autoriz'])){ // Если есть данные в 'blablabla', то...
+    echo "<script>alert('Пользователь с таким е-мэйлом уже существует!')</script>";
+    $_SESSION = array();
+    session_destroy();
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Autorization</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
