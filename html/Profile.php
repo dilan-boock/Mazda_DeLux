@@ -1,5 +1,6 @@
 <?php 
   session_start();
+  include('../php/care-plus.php');
   if($_SESSION['root']==1){
       $root_autor=1;
       $fio = $_SESSION['fio'];
@@ -51,23 +52,10 @@
           <?php
               if($root_autor==1){
                 echo'<h1>Мои заявки</h1>
-                <div class="cards_plus">
-                  <dl class="cards-plus-list">
-                    <form action="Delete.php" method="get">
-                      <dt class="cards-plus-item">id заявки</dt>
-                      <dd class="cards-plus-utem"><input type="text" name="id_model" class="input_id" readonly value="12345"></dd>
-                      <dt class="cards-plus-item">Модель</dt>
-                      <dd class="cards-plus-utem">Mazda6</dd>
-                      <dt class="cards-plus-item">Модификация</dt>
-                      <dd class="cards-plus-utem">Золотая комплектация</dd>
-                      <dt class="cards-plus-item">Цена</dt>
-                      <dd class="cards-plus-utem">5 000 000р</dd>
-                      <dt class="cards-plus-item">Статус</dt>
-                      <dd class="cards-plus-utem">Обрабатывается</dd>
-                      <button class="cards-plus-but">Отозвать заявку</button>
-                    </form>
-                  </dl>
-                </div>';
+                  <form action="../php/app_care.php">
+                    <button>Загрузить заявки</button>
+                  </form>';
+                  include('../php/app_care.php'); //Данный рекурсивный блок кода печатается там же где и генерируется
               }
               else{
                 echo'<h1>Поданные заявки</h1>

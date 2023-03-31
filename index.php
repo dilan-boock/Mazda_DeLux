@@ -8,6 +8,9 @@
         }
         else{
             $root_autor=1;
+            if(isset($_SESSION['stat_zayav'])){ // Если есть данные в 'blablabla', то...
+                echo "<script>alert('Упс! Что-то пошло не так')</script>";
+            }
         }
     }
     else{ // Если данных в сессии нет, то...

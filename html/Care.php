@@ -36,7 +36,7 @@
       </section>
       <section class="bottom-header">
         <ul class="menu">
-          <li class="menu-item"><a href="../index.html">Каталог</a></li>
+          <li class="menu-item"><a href="../index.php">Каталог</a></li>
           <li class="menu-item"><?php echo '<a href="'.$a_href.'">Мои заявки</a>'?></li>
         </ul>
       </section>
